@@ -24,7 +24,9 @@
 	<modules>
 		<module>bing-model</module>
 		<module>bing-service</module>
-	</modules>
+		<module>bing-web</module>
+        <module>bing-job</module>
+    </modules>
 
 	<dependencies>
 
