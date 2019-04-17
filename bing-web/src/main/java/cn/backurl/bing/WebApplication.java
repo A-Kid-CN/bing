@@ -2,14 +2,12 @@ package cn.backurl.bing;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan(basePackages = {"cn.backurl.bing.redis"})
-public class BingApplication {
+public class WebApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BingApplication.class, args);
+		SpringApplication.run(WebApplication.class, args);
 
 	}
 
