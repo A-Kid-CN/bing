@@ -26,7 +26,8 @@
 		<module>bing-service</module>
 		<module>bing-web</module>
         <module>bing-job</module>
-    </modules>
+		<module>bing-common</module>
+	</modules>
 
 	<dependencies>
 
@@ -95,6 +96,7 @@
 			<scope>compile</scope>
 		</dependency>
 
+		<!--log日志工具包-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -102,6 +104,29 @@
             <scope>provided</scope>
         </dependency>
 
+		<!--http 请求工具包-->
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.5.5</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.11</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.8.5</version>
+		</dependency>
+
+		<!--string工具包-->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.9</version>
+		</dependency>
 
 	</dependencies>
 

@@ -6,10 +6,10 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @ComponentScan(basePackages = {"cn.backurl.bing.job"})
-public class BingApplication {
+public class BingJobApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BingApplication.class, args);
+		SpringApplication.run(BingJobApplication.class, args);
 	}
 
 }
