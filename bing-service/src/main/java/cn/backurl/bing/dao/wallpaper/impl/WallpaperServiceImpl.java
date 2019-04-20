@@ -1,8 +1,8 @@
-package cn.backurl.bing.wallpaper.impl;
+package cn.backurl.bing.dao.wallpaper.impl;
 
+import cn.backurl.bing.dao.wallpaper.WallpaperMapper;
+import cn.backurl.bing.dao.wallpaper.WallpaperService;
 import cn.backurl.bing.model.wallpaper.Wallpaper;
-import cn.backurl.bing.wallpaper.WallpaperMapper;
-import cn.backurl.bing.wallpaper.WallpaperService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 

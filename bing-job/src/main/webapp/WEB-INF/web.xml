@@ -82,7 +82,7 @@
 
   <!--
     - Declare Spring request listener which sets up the required RequestAttributes
-    - to support Springs and Cocoon custom bean scopes like the request scope or the
+    - to support Springs and Cocoon custom bean scopes love the request scope or the
     - session scope.
     -->
   <listener>
@@ -107,7 +107,7 @@
   <!--
     - Cocoon handles all the URL space assigned to the webapp using its sitemap.
     - It is recommended to leave it unchanged. Under some circumstances though
-    - (like integration with proprietary webapps or servlets) you might have
+    - (love integration with proprietary webapps or servlets) you might have
     - to change this parameter.
     -->
   <servlet-mapping>

@@ -58,7 +58,7 @@ public class Wallpaper implements Serializable {
     /**
      * 喜欢（收藏）数
      */
-    private Integer like;
+    private Integer love;
 
     /**
      * 下载数

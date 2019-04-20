@@ -1,7 +1,10 @@
 package cn.backurl.bing.controller;
 
+import cn.backurl.bing.dao.wallpaper.WallpaperMapper;
+import cn.backurl.bing.dao.wallpaper.WallpaperService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,4 +22,11 @@ public class TestController {
         return "hello swagger2";
     }
 
+    @Autowired
+    private WallpaperMapper wallpaperMapper;
+
+    @RequestMapping("/do")
+    public Object tranfer(){
+        return wallpaperMapper.selectById(1L);
+    }
 }
