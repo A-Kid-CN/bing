@@ -18,4 +18,5 @@ public class TestController {
     public String hello(){
         return "hello swagger2";
     }
+
 }
