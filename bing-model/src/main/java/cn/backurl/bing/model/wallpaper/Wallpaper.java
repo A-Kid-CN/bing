@@ -1,20 +1,23 @@
 package cn.backurl.bing.model.wallpaper;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 import java.util.Date;
 
+
 /**
  * <p>
- * 必应壁纸实体类
+ * 必应壁纸数据表
  * </p>
  *
  * @author akid
  * @since 2019-04-20
  */
 @Data
+@EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
 public class Wallpaper implements Serializable {
 
@@ -44,6 +47,21 @@ public class Wallpaper implements Serializable {
      * 版权说明
      */
     private String copyRight;
+
+    /**
+     * 点击数
+     */
+    private Integer click;
+
+    /**
+     * 喜欢（收藏）数
+     */
+    private Integer like;
+
+    /**
+     * 下载数
+     */
+    private Integer download;
 
     /**
      * 必应原生json
