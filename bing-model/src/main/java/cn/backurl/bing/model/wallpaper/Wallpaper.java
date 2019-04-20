@@ -23,6 +23,8 @@ public class Wallpaper implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    private Long id;
+
     /**
      * 图片的日期
      */
