@@ -27,6 +27,7 @@
 		<module>bing-web</module>
         <module>bing-job</module>
 		<module>bing-common</module>
+		<module>bing-dao</module>
 	</modules>
 
 	<dependencies>
