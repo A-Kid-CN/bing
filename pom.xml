@@ -24,9 +24,11 @@
 	<modules>
 		<module>bing-model</module>
 		<module>bing-service</module>
-		<module>bing-web</module>
+		<module>bing-wallpaper</module>
+		<module>bing-cas</module>
 		<module>bing-job</module>
 		<module>bing-common</module>
+		<module>bing-dao</module>
 	</modules>
 
 	<dependencies>
