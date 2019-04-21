@@ -30,42 +30,42 @@
         <module>bing-common</module>
         <module>bing-dao</module>
     </modules>
-    <dependencyManagement>
-        <!-- 模块说明：这里声明多个子模块 -->
-        <dependencies>
-            <!--子版本依赖-->
-            <dependency>
-                <groupId>cn.backurl.bing</groupId>
-                <artifactId>bing-wallpaper</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
-            </dependency>
-            <dependency>
-                <groupId>cn.backurl.bing</groupId>
-                <artifactId>bing-cas</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
-            </dependency>
-            <dependency>
-                <groupId>cn.backurl.bing</groupId>
-                <artifactId>bing-dao</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
-            </dependency>
-            <dependency>
-                <groupId>cn.backurl.bing</groupId>
-                <artifactId>bing-model</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
-            </dependency>
-            <dependency>
-                <groupId>cn.backurl.bing</groupId>
-                <artifactId>bing-job</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
-            </dependency>
-            <dependency>
-                <groupId>cn.backurl.bing</groupId>
-                <artifactId>bing-common</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+    <!--<dependencyManagement>-->
+        <!--&lt;!&ndash; 模块说明：这里声明多个子模块 &ndash;&gt;-->
+        <!--<dependencies>-->
+            <!--&lt;!&ndash;子版本依赖&ndash;&gt;-->
+            <!--<dependency>-->
+                <!--<groupId>cn.backurl.bing</groupId>-->
+                <!--<artifactId>bing-wallpaper</artifactId>-->
+                <!--<version>0.0.1-SNAPSHOT</version>-->
+            <!--</dependency>-->
+            <!--<dependency>-->
+                <!--<groupId>cn.backurl.bing</groupId>-->
+                <!--<artifactId>bing-cas</artifactId>-->
+                <!--<version>0.0.1-SNAPSHOT</version>-->
+            <!--</dependency>-->
+            <!--<dependency>-->
+                <!--<groupId>cn.backurl.bing</groupId>-->
+                <!--<artifactId>bing-dao</artifactId>-->
+                <!--<version>0.0.1-SNAPSHOT</version>-->
+            <!--</dependency>-->
+            <!--<dependency>-->
+                <!--<groupId>cn.backurl.bing</groupId>-->
+                <!--<artifactId>bing-model</artifactId>-->
+                <!--<version>0.0.1-SNAPSHOT</version>-->
+            <!--</dependency>-->
+            <!--<dependency>-->
+                <!--<groupId>cn.backurl.bing</groupId>-->
+                <!--<artifactId>bing-job</artifactId>-->
+                <!--<version>0.0.1-SNAPSHOT</version>-->
+            <!--</dependency>-->
+            <!--<dependency>-->
+                <!--<groupId>cn.backurl.bing</groupId>-->
+                <!--<artifactId>bing-common</artifactId>-->
+                <!--<version>0.0.1-SNAPSHOT</version>-->
+            <!--</dependency>-->
+        <!--</dependencies>-->
+    <!--</dependencyManagement>-->
 
 
     <dependencies>
@@ -173,22 +173,22 @@
             <version>3.1.0</version>
         </dependency>
 
-        <dependency>
-            <groupId>cn.backurl.bing</groupId>
-            <artifactId>bing.model</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>cn.backurl.bing</groupId>-->
+            <!--<artifactId>bing.model</artifactId>-->
+            <!--<version>0.0.1-SNAPSHOT</version>-->
+            <!--<scope>compile</scope>-->
+        <!--</dependency>-->
     </dependencies>
 
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
+    <!--<build>-->
+        <!--<plugins>-->
+            <!--<plugin>-->
+                <!--<groupId>org.springframework.boot</groupId>-->
+                <!--<artifactId>spring-boot-maven-plugin</artifactId>-->
+            <!--</plugin>-->
+        <!--</plugins>-->
+    <!--</build>-->
 
 </project>
