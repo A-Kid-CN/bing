@@ -22,11 +22,4 @@ public class TestController {
         return "hello swagger2";
     }
 
-    @Autowired
-    private WallpaperMapper wallpaperMapper;
-
-    @RequestMapping("/do")
-    public Object tranfer(){
-        return wallpaperMapper.selectById(1L);
-    }
 }

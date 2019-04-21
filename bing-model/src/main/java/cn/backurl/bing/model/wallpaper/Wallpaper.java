@@ -3,6 +3,7 @@ package cn.backurl.bing.model.wallpaper;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+import org.apache.ibatis.type.Alias;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -19,6 +20,7 @@ import java.util.Date;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
+@Alias("Wallpaper")
 public class Wallpaper implements Serializable {
 
     private static final long serialVersionUID = 1L;

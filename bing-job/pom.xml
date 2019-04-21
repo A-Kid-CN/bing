@@ -22,7 +22,7 @@
         </dependency>
         <dependency>
             <groupId>cn.backurl.bing</groupId>
-            <artifactId>bing.model</artifactId>
+            <artifactId>bing-model</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
