@@ -1,15 +1,23 @@
 package cn.backurl.bing.job;
 
 import cn.backurl.bing.constant.SysConstant;
+import cn.backurl.bing.dao.wallpaper.WallpaperMapper;
+import cn.backurl.bing.model.wallpaper.Wallpaper;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
+
+import javax.annotation.PostConstruct;
+import java.util.Date;
 
 /**
  * <br>
@@ -23,6 +31,16 @@ import org.springframework.stereotype.Component;
 @Component
 @EnableScheduling
 public class DownloadBingWallpaperJob {
+    @Autowired
+    private WallpaperMapper wallpaperMapper;
+    private static final String BING_WEB = "http://cn.bing.com";
+//    private static DownloadBingWallpaperJob downloadBingWallpaperJob;
+//
+//    @PostConstruct
+//    public void init(){
+//        downloadBingWallpaperJob = this;
+//        downloadBingWallpaperJob.wallpaperMapper = this.wallpaperMapper;
+//    }
 
     /**
      * <br>
@@ -31,12 +49,46 @@ public class DownloadBingWallpaperJob {
      *
      * @author: akid
      * @create: 2019-04-18 00:06
+     * {
+     * "startdate": "20190421",
+     * "fullstartdate": "201904211600",
+     * "enddate": "20190422",
+     * "url": "/th?id=OHR.LaysanAlbatross_ZH-CN2784683590_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp",
+     * "urlbase": "/th?id=OHR.LaysanAlbatross_ZH-CN2784683590",
+     * "copyright": "西北夏威夷群岛中途岛环礁上的黑背信天翁雏鸟 (© Jaymi Heimbuch/Minden Pictures)",
+     * "copyrightlink": "http://www.bing.com/search?q=%E4%BF%A1%E5%A4%A9%E7%BF%81%E9%9B%8F%E9%B8%9F&form=hpcapt&mkt=zh-cn",
+     * "title": "",
+     * "quiz": "/search?q=Bing+homepage+quiz&filters=WQOskey:%22HPQuiz_20190421_LaysanAlbatross%22&FORM=HPQUIZ",
+     * "wp": true,
+     * "hsh": "8c826b201b83cb53438b539634f1eef5",
+     * "drk": 1,
+     * "top": 1,
+     * "bot": 1,
+     * "hs": []
+     * }
      */
-    @Scheduled(cron = "*/5 * * * * ?")
+    @Scheduled(cron = "0 58 0 * * ?")
     public void execute() {
-        //1、拉取数据
-        String str = getDataFormBing("js", 0, 8, "zh-CN");
-        System.out.println(str);
+        Wallpaper wallpaper = new Wallpaper();
+        String str = getDataFormBing("js", 0, 1, "zh-CN");
+        JSONObject jsonObj = (JSONObject) JSON.parse(str);
+        JSONObject wallpaperInfo = (JSONObject) jsonObj.getJSONArray("images").get(0);
+        wallpaper.setCopyRight(wallpaperInfo.getString("copyright"));
+        wallpaper.setDate(wallpaperInfo.getString("enddate"));
+        wallpaper.setDownload(0);
+        wallpaper.setClick(0);
+        wallpaper.setLove(0);
+        wallpaper.setMiniPath(BING_WEB + wallpaperInfo.getString("url"));
+        wallpaper.setPath(BING_WEB + wallpaperInfo.getString("url"));
+        wallpaper.setName(wallpaperInfo.getString("fullstartdate"));
+        wallpaper.setGmtCreate(new Date());
+        wallpaper.setOriginal(wallpaperInfo.toString());
+        wallpaper.setGmtModified(new Date());
+        try {
+            int result = wallpaperMapper.insert(wallpaper);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
     }
 
@@ -61,7 +113,7 @@ public class DownloadBingWallpaperJob {
      * @Date: 2019-04-18 22:36
      * @Return: java.lang.String
      */
-    String getDataFormBing(String format, Integer idx, Integer n, String mkt) {
+    public static String getDataFormBing(String format, Integer idx, Integer n, String mkt) {
         if (StringUtils.isNotBlank(format) && idx != null && n != null && mkt != null) {
             String param = "?format=" + format + "&idx=" + idx + "&n=" + n + "&mkt=" + mkt;
             HttpPost post = new HttpPost(SysConstant.BING_URL + param);

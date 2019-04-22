@@ -16,7 +16,7 @@
 
 语法：`nohup Command [Arg...][&]`
 
-在缺省情况下，所有输出被重定向到名为`nohup.out`的文件中，目录在当前目录用户或当前文件夹下。
+在缺省情况下，所有输出被重定向到名为`nohup.out`的文件中，目录在当前目录用户或当前文件夹下。https://github.com/suxinying/gitbook.git
 
 #### nohup和&的区别
 
