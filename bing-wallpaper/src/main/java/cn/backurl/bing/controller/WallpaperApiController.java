@@ -5,6 +5,7 @@ import cn.backurl.bing.result.AjaxResult;
 import cn.backurl.bing.result.ResultCode;
 import cn.backurl.bing.service.wallpaper.WallpaperService;
 import cn.backurl.bing.vo.WallpaperVO;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,12 +31,25 @@ public class WallpaperApiController {
     private WallpaperService wallpaperService;
 
     @GetMapping("/get/{id}")
-    public Object getOne(@PathVariable(value="id")Long id) {
+    public Object getOne(@PathVariable Long id) {
         if (null != id) {
             Wallpaper wallpaper = wallpaperService.getById(id);
             return AjaxResult.success(WallpaperVO.getWallpaperVO(wallpaper));
         }
         return AjaxResult.failure(ResultCode.ParamException);
+    }
+
+    @GetMapping("/page/{pageNo}/{pageSize}")
+    public Object page(@PathVariable Integer pageNo, @PathVariable Integer pageSize) {
+        if (null == pageNo) {
+            pageNo = 1;
+            pageSize = 20;
+        }
+
+        Page<Wallpaper> page = new Page<>(pageNo,pageSize);
+        wallpaperService.page(page);
+
+        return AjaxResult.success(page);
     }
 
 }
