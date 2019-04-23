@@ -1,13 +1,11 @@
 package cn.backurl.bing.controller;
 
 import cn.backurl.bing.dao.wallpaper.WallpaperMapper;
-import cn.backurl.bing.dao.wallpaper.WallpaperService;
 import cn.backurl.bing.model.wallpaper.Wallpaper;
 import cn.backurl.bing.result.AjaxResult;
 import cn.backurl.bing.result.ResultCode;
-import freemarker.template.utility.StringUtil;
+import cn.backurl.bing.service.wallpaper.WallpaperService;
 import lombok.extern.log4j.Log4j2;
-import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -34,6 +32,9 @@ public class TranferDataController {
     @Autowired
     private WallpaperMapper wallpaperMapper;
 
+    @Autowired
+    private WallpaperService wallpaperService;
+
     /**
      * <p>
      * 功能描述:迁移壁纸数据到数据库
@@ -57,6 +58,7 @@ public class TranferDataController {
         }
         for (int i = 12; monthNum > 0; monthNum--, i--) {
             File file = new File(basePath + "/" + year + "年/" + year + "Bing" + (i >= 10 ? i : "0" + i));
+
             log.info("输出当前文件路径"+file.getPath());
             if (file.exists()) {
                 File[] files = file.listFiles();// 获取目录下的所有文件或文件夹
@@ -66,8 +68,8 @@ public class TranferDataController {
                 Integer day = 1;
                 for (File item : files) {
                     log.info("输出获取的的文件名"+item.getName());
-                    String name = file.getName();
-                    String path = file.getPath();
+                    String name = item.getName();
+                    String path = item.getPath();
                     String date = year  +  (i >= 10 ? i : "0" + i)+  (day >= 10 ? day : "0" + day);
 
                     Wallpaper wallpaper = new Wallpaper();

@@ -79,7 +79,7 @@ public class AjaxResult {
      * @Return: cn.backurl.bing.result.AjaxResult
      */
     public static AjaxResult success(Object data) {
-        return success("", null);
+        return success("", data);
     }
 
     /**
@@ -134,14 +134,14 @@ public class AjaxResult {
      * 获取错误结果模板
      *
      * @param message 请求返回信息
-     * @param obj     请求结果
+     * @param data     请求结果
      * @return AjaxResult
      */
-    public static AjaxResult failure(ResultCode statusCode, String message, Object obj) {
+    public static AjaxResult failure(ResultCode statusCode, String message, Object data) {
         AjaxResult result = new AjaxResult();
         result.setStatusCode(statusCode.getCode());
         result.setMessage(message);
-        result.setData(obj);
+        result.setData(data);
         return result;
     }
 

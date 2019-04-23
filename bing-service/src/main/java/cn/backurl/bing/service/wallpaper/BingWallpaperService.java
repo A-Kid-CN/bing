@@ -1,4 +1,4 @@
-package cn.backurl.bing.dao.wallpaper;
+package cn.backurl.bing.service.wallpaper;
 
 /**
 * <p>
