@@ -70,7 +70,7 @@ public class DownloadBingWallpaperJob {
      * "hs": []
      * }
      */
-    @Scheduled(cron = "0 58 0 * * ?")
+    @Scheduled(cron = "0 5 0 * * ?")
     public void execute() {
         Wallpaper wallpaper = new Wallpaper();
         String str = getDataFormBing("js", 0, 1, "zh-CN");
