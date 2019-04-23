@@ -5,6 +5,8 @@ import cn.backurl.bing.dao.wallpaper.WallpaperMapper;
 import cn.backurl.bing.model.wallpaper.Wallpaper;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -30,6 +32,7 @@ import java.util.Date;
  */
 @Component
 @EnableScheduling
+@Slf4j
 public class DownloadBingWallpaperJob {
     @Autowired
     private WallpaperMapper wallpaperMapper;
@@ -86,8 +89,10 @@ public class DownloadBingWallpaperJob {
         wallpaper.setGmtModified(new Date());
         try {
             int result = wallpaperMapper.insert(wallpaper);
+            log.info("job execute success,data-{}",new Date());
         }catch (Exception e){
             e.printStackTrace();
+            log.error("job execute fail ------ {}",e);
         }
 
     }
