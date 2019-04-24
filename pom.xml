@@ -172,23 +172,7 @@
             <artifactId>mybatis-plus-boot-starter</artifactId>
             <version>3.1.0</version>
         </dependency>
-
-        <!--<dependency>-->
-            <!--<groupId>cn.backurl.bing</groupId>-->
-            <!--<artifactId>bing.model</artifactId>-->
-            <!--<version>0.0.1-SNAPSHOT</version>-->
-            <!--<scope>compile</scope>-->
-        <!--</dependency>-->
     </dependencies>
 
-
-    <!--<build>-->
-        <!--<plugins>-->
-            <!--<plugin>-->
-                <!--<groupId>org.springframework.boot</groupId>-->
-                <!--<artifactId>spring-boot-maven-plugin</artifactId>-->
-            <!--</plugin>-->
-        <!--</plugins>-->
-    <!--</build>-->
 
 </project>
