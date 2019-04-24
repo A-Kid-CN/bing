@@ -6,17 +6,26 @@ import cn.backurl.bing.model.wallpaper.Wallpaper;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Date;
 
 /**
@@ -68,7 +77,7 @@ public class DownloadBingWallpaperJob {
      * "hs": []
      * }
      */
-    @Scheduled(cron = "0 5 0 * * ?")
+    @Scheduled(cron = "10 * * * * ?")
     public void execute() {
         Wallpaper wallpaper = new Wallpaper();
         String str = getDataFormBing("js", 0, 1, "zh-CN");
@@ -85,12 +94,24 @@ public class DownloadBingWallpaperJob {
         wallpaper.setGmtCreate(new Date());
         wallpaper.setOriginal(wallpaperInfo.toString());
         wallpaper.setGmtModified(new Date());
+//        try {
+//            int result = wallpaperMapper.insert(wallpaper);
+//            log.info("job execute success,data-{}",new Date());
+//        }catch (Exception e){
+//            e.printStackTrace();
+//            log.error("job execute fail ------ {}",e);
+//        }
+
+        CloseableHttpClient client = HttpClients.createDefault();
+        HttpGet httpGet = new HttpGet(BING_WEB + wallpaperInfo.getString("url"));
+        httpGet.setHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:49.0) Gecko/20100101 Firefox/49.0");
         try {
-            int result = wallpaperMapper.insert(wallpaper);
-            log.info("job execute success,data-{}",new Date());
-        }catch (Exception e){
+            CloseableHttpResponse response = client.execute(httpGet);
+            HttpEntity entity = response.getEntity();
+            InputStream inputStream = entity.getContent();//返回一个输入流
+            FileUtils.copyInputStreamToFile(inputStream,new File("/Users/suxinying"));
+        } catch (IOException e) {
             e.printStackTrace();
-            log.error("job execute fail ------ {}",e);
         }
 
     }
