@@ -31,4 +31,15 @@
 path：/usr/share/jenkins
 
 启动命令：nohup java -jar jenkins.war –httpPort=8888 &
-也可以： /etc/init.d/jenkins restart
+也可以：
+jenkins启动
+
+#service jenkins start
+
+重启
+
+#service jenkins restart
+停止
+
+#service jenkins stop
+谷歌服务器的jenkins地址：
