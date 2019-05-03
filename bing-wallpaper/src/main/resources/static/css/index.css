@@ -1,0 +1,89 @@
+/* 顶部样式 start*/
+
+.top {
+    height: 40px;
+    margin: 10px;
+}
+
+#top-logo {
+    height: 40px;
+    line-height: 40px;
+    float: left;
+    text-align: center;
+    margin-left: 20px;
+}
+
+#top-content {
+    font-size: 30px;
+    font-weight: 300;
+}
+
+#top-content,
+.nav-sub-a,
+.nav-a {
+    color: #0C8484;
+}
+
+
+/* 顶部右侧 start*/
+
+.nav {
+    float: right;
+    line-height: 40px;
+}
+
+
+/* 亲子代 */
+
+.nav>li {
+    float: left;
+    padding: 0 30px;
+    text-align: center;
+}
+
+.ranklist:hover .nav-sub {
+    display: block;
+}
+
+.nav-a:hover {
+    color: #e6e6e6
+}
+
+.nav-sub {
+    float: initial;
+    display: none;
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border: 1px solid #e5e5e5;
+    text-align: center;
+    margin-left: -40px;
+}
+
+.nav-sub-ul {
+    text-align: center;
+}
+
+.nav-sub-a:hover {
+    color: #e6e6e6
+}
+
+
+/* 三角形 */
+
+.nav-sub::before {
+    margin-top: -5px;
+    content: "";
+    position: absolute;
+    background: #fff;
+    width: 7px;
+    height: 7px;
+    border: 1px solid #e5e5e5;
+    transform: rotate(45deg);
+}
+
+
+/* 顶部右侧 end*/
+
+
+/* 顶部样式 end*/
