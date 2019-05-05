@@ -1,0 +1,12 @@
+jwt:
+  tokenHeader: Authorization #JWT存储的请求头
+  secret: bing-cas #JWT加解密使用的密钥
+  expiration: 604800 #JWT的超期限时间(60*60*24)
+  tokenHead: Bearer  #JWT负载中拿到开头
+
+spring:
+  datasource:
+    url: jdbc:mysql://132.232.69.101:3306/bing?characterEncoding=utf8&useSSL=true
+    username: root
+    password: 7727077
+    driver-class-name: com.mysql.cj.jdbc.Driver
