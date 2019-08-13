@@ -59,11 +59,12 @@ public class CodeGenerator {
 
         // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://132.232.69.101:3306/bing?useUnicode=true&useSSL=false&characterEncoding=utf8");
+        dsc.setUrl("jdbc:mysql://132.232.69.101:3306/backurl?useUnicode=true&useSSL=false&characterEncoding=utf8");
         // dsc.setSchemaName("public");
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
-        dsc.setUsername("");
-        dsc.setPassword("");
+        //todo 输入账号密码
+        dsc.setUsername("root");
+        dsc.setPassword("7719256");
         mpg.setDataSource(dsc);
 
         // 包配置
