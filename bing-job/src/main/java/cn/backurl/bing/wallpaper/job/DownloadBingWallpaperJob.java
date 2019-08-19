@@ -1,4 +1,4 @@
-package cn.backurl.bing.job;
+package cn.backurl.bing.wallpaper.job;
 
 import cn.backurl.bing.constant.SysConstant;
 import cn.backurl.bing.dao.wallpaper.WallpaperMapper;

@@ -1,6 +1,6 @@
 spring:
   datasource:
     username: root
-    password: 7727077
-    url: jdbc:mysql://132.232.69.101:3306/bing?useUnicode=true&useSSL=false&characterEncoding=utf8
+    password: 7719256
+    url: jdbc:mysql://132.232.69.101:3306/backurl?useUnicode=true&useSSL=false&characterEncoding=utf8
     driver-class-name: com.mysql.cj.jdbc.Driver

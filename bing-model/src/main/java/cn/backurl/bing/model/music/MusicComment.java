@@ -1,5 +1,7 @@
 package cn.backurl.bing.model.music;
 
+import cn.backurl.bing.model.music.dto.BeReplied;
+import cn.backurl.bing.model.music.dto.WYUser;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
@@ -8,6 +10,7 @@ import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * <p>
@@ -57,6 +60,12 @@ public class MusicComment implements Serializable {
     private String nickname;
 
     /**
+     * 原始json
+     */
+    @TableField("original_json")
+    private String originalJson;
+
+    /**
      * 更新时间
      */
     @TableField("updateTime")
@@ -67,6 +76,18 @@ public class MusicComment implements Serializable {
      */
     @TableField("createTime")
     private LocalDateTime createTime;
+
+    /**
+     * 网易云用户信息
+     */
+    @TableField(exist = false)
+    private WYUser wyUser;
+
+    /**
+     * 被引用的评论列表
+     */
+    @TableField(exist = false)
+    private List<BeReplied> replieds;
 
 
 }

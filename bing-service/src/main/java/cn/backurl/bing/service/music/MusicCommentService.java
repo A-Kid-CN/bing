@@ -1,6 +1,7 @@
 package cn.backurl.bing.service.music;
 
 import cn.backurl.bing.model.music.MusicComment;
+import cn.backurl.bing.model.music.dto.CommentResult;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;
@@ -25,10 +26,10 @@ public interface MusicCommentService extends IService<MusicComment> {
      * @param songId   歌曲id
      * @param pageNo   页码
      * @param pageSize 页大小
-     * @return:java.util.List<cn.backurl.bing.model.music.MusicComment>
+     * @return:CommentResult
      * @since: 1.0.0
      * @Author:akid
      * @Date: 2019/8/13 20:45
      */
-    List<MusicComment> listComment(String songId, Integer pageNo, Integer pageSize);
+    CommentResult getCommentFromWYY(Long songId, Integer pageNo, Integer pageSize);
 }

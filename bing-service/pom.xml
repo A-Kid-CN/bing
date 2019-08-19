@@ -17,6 +17,15 @@
             <version>0.0.1-SNAPSHOT</version>
             <!--<scope>compile</scope>-->
         </dependency>
+
+
+        <!-- 处理emoji -->
+        <dependency>
+            <groupId>com.github.binarywang</groupId>
+            <artifactId>java-emoji-converter</artifactId>
+            <version>0.0.1</version>
+        </dependency>
+
     </dependencies>
 
 

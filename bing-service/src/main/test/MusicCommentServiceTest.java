@@ -1,15 +1,23 @@
-package music;
-
 import cn.backurl.bing.service.music.MusicCommentService;
 import cn.backurl.bing.service.music.impl.MusicCommentServiceImpl;
 import org.junit.Test;
 
-public class MusicComentServiceTest {
+/**
+ * <p>
+ *
+ * </p>
+ *
+ * @author: akid
+ * @create: 2019-08-19 21:13
+ **/
+public class MusicCommentServiceTest {
 
     @Test
-    public void testGetComments() {
+    public void listCOPmmentsTest(){
+
         MusicCommentService musicCommentService = new MusicCommentServiceImpl();
-        musicCommentService.listComment("411214279", 1, 100);
+        long songId = 440208476l;
+        musicCommentService.getCommentFromWYY(songId, 1, 5);
     }
 
 }
