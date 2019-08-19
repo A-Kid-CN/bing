@@ -1,6 +1,6 @@
-package cn.backurl.music;
+package cn.backurl.bing.music;
 
-import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,7 +9,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @SpringBootApplication(scanBasePackages = {"cn.backurl.bing"})
 @MapperScan("cn.backurl.bing.dao.*")
-@Log4j2
+@Slf4j
 public class MusicApplication implements WebMvcConfigurer {
 
 	public static void main(String[] args) {
@@ -20,7 +20,7 @@ public class MusicApplication implements WebMvcConfigurer {
 
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/image/**").addResourceLocations("file:/usr/local/bing/");
+//		registry.addResourceHandler("/image/**").addResourceLocations("file:/usr/local/bing/");
 
 		log.info("注入文件虚拟路径");
 	}
