@@ -6,11 +6,12 @@ import cn.backurl.bing.result.AjaxResult;
 import cn.backurl.bing.result.ResultCode;
 import cn.backurl.bing.service.music.MusicCommentService;
 import com.alibaba.fastjson.JSONObject;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,6 +31,21 @@ public class MusicCommentController {
     @Autowired
     private MusicCommentService musicCommentService;
 
+    @GetMapping("/page")
+    public Object pageComments(Long songId, Integer pageNo, Integer pageSize, String keyword) {
+        if (null == songId || null == pageNo || null == pageSize) {
+            return AjaxResult.failure(ResultCode.ParamException);
+        }
+
+        Page<MusicComment> page = new Page<>(pageNo, pageSize);
+
+        QueryWrapper<MusicComment> query = new QueryWrapper<MusicComment>().eq("song_id", songId);
+        if (StringUtils.isNotBlank(keyword)) {
+            query.like("content", keyword);
+        }
+        return AjaxResult.success(musicCommentService.page(page, query));
+    }
+
     /**
      * <p>
      * 功能描述: 开始音乐评论爬虫
@@ -43,7 +59,7 @@ public class MusicCommentController {
     @PostMapping("/start")
     public Object startCommentSpider(final Long songId) {
         if (songId == null) {
-            return AjaxResult.failure(ResultCode.ParamException, "扑街，参数错了");
+            return AjaxResult.failure(ResultCode.ParamException, "参数错了");
         }
         Thread thread = new Thread(new Runnable() {
             @Override
@@ -64,9 +80,9 @@ public class MusicCommentController {
                         if (pageNo * pageSize < commentResult.getTotal()) {
                             try {
                                 log.info("睡眠2s");
-                                time ++;
+                                time++;
                                 log.info("第{}次重试ing...", time);
-                                if(time>10){
+                                if (time > 10) {
                                     //尝试10次
                                     break;
                                 }
