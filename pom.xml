@@ -29,6 +29,7 @@
         <module>bing-common</module>
         <module>bing-dao</module>
         <module>bing-cas</module>
+        <module>bing-music</module>
     </modules>
     <!--<dependencyManagement>-->
         <!--&lt;!&ndash; 模块说明：这里声明多个子模块 &ndash;&gt;-->

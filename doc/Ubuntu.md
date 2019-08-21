@@ -6,7 +6,7 @@
 
 所有log都存放在`/usr/local/log`路径下，例如
 
-`nohup java -jar bing-web.jar  >>/usr/local/log/bing/bing.log`
+`nohup java -jar bing-web.jar  >>/usr/local/log/bing/bing.log &`
 
 代表不挂断运行，并将log日志打到bing.log文件夹下
 

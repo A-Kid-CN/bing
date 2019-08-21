@@ -9,10 +9,10 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>bing-web</artifactId>
+    <artifactId>bing-wallpaper</artifactId>
     <packaging>jar</packaging>
 
-    <name>bing-web Maven Webapp</name>
+    <name>bing-wallpaper Maven Webapp</name>
     <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
 
@@ -66,7 +66,7 @@
 
 
     <build>
-        <finalName>bing-web</finalName>
+        <finalName>bing-wallpaper</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

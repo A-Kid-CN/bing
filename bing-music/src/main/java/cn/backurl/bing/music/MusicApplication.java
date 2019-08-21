@@ -8,7 +8,7 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @SpringBootApplication(scanBasePackages = {"cn.backurl.bing"})
-@MapperScan("cn.backurl.bing.dao.*")
+@MapperScan("cn.backurl.bing.dao")
 @Slf4j
 public class MusicApplication implements WebMvcConfigurer {
 

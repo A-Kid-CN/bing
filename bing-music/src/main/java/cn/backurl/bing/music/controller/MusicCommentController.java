@@ -65,9 +65,9 @@ public class MusicCommentController {
                             try {
                                 log.info("睡眠2s");
                                 time ++;
-                                log.info("第{}次重试ing...");
-                                if(time>50){
-                                    //尝试50次
+                                log.info("第{}次重试ing...", time);
+                                if(time>10){
+                                    //尝试10次
                                     break;
                                 }
                                 Thread.sleep(2000);
