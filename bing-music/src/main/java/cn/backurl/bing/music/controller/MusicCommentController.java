@@ -42,7 +42,7 @@ public class MusicCommentController {
 
         Page<MusicComment> page = new Page<>(pageNo, pageSize);
 
-        QueryWrapper<MusicComment> query = new QueryWrapper<MusicComment>().eq("song_id", songId);
+        QueryWrapper<MusicComment> query = new QueryWrapper<MusicComment>().eq(true,"song_id", songId);
         if (StringUtils.isNotBlank(keyword)) {
              query.like(true,"content", keyword);
         }
