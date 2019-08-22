@@ -6,6 +6,9 @@ import cn.backurl.bing.result.AjaxResult;
 import cn.backurl.bing.result.ResultCode;
 import cn.backurl.bing.service.music.MusicCommentService;
 import com.alibaba.fastjson.JSONObject;
+import com.baomidou.mybatisplus.core.conditions.AbstractWrapper;
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.baomidou.mybatisplus.core.conditions.query.Query;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.extern.slf4j.Slf4j;
@@ -41,7 +44,7 @@ public class MusicCommentController {
 
         QueryWrapper<MusicComment> query = new QueryWrapper<MusicComment>().eq("song_id", songId);
         if (StringUtils.isNotBlank(keyword)) {
-            query.like("content", keyword);
+             query.like(true,"content", keyword);
         }
         return AjaxResult.success(musicCommentService.page(page, query));
     }
