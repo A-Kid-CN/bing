@@ -6,15 +6,15 @@ import cn.backurl.bing.result.AjaxResult;
 import cn.backurl.bing.result.ResultCode;
 import cn.backurl.bing.service.music.MusicCommentService;
 import com.alibaba.fastjson.JSONObject;
-import com.baomidou.mybatisplus.core.conditions.AbstractWrapper;
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
-import com.baomidou.mybatisplus.core.conditions.query.Query;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -42,7 +42,7 @@ public class MusicCommentController {
 
         Page<MusicComment> page = new Page<>(pageNo, pageSize);
 
-        QueryWrapper<MusicComment> query = new QueryWrapper<MusicComment>().eq(true,"song_id", songId);
+        QueryWrapper<MusicComment> query = new QueryWrapper<MusicComment>().eq("song_id", songId);
         if (StringUtils.isNotBlank(keyword)) {
              query.like(true,"content", keyword);
         }
