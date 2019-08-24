@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>歌曲评论</title>
+        <link rel="stylesheet" type="text/css" href="comment.css">
+                <script type="text/javascript" src="vue.js"></script>
+    </head>
+    <body>
+    <div class="a">
+    <div class="b">  <br/>
+    <div class="c">网易音乐评论查询</div>
+    <br/><br/>
+
+<div id="d">
+    <!--搜索开头-->
+      <div class="d">
+      <input type="text" placeholder="输入歌曲id" v-model="topic">
+      <input type="text" placeholder="输入关键字" v-model="keyword">
+        <button>查询</button>
+      </div> <br/><br/>
+      <!--搜索结尾-->
+
+      <!--评论区开头-->
+            <div class="h">
+          <div class="i">评论内容</div>
+          <div class="j">评论人呢称</div>
+          <div class="j">评论人网易云id</div>
+          <div class="j">评论喜欢</div>
+          <div class="j">评论时间</div>
+      </div>
+      <div class="e">
+          <div class="f">{{topic}}</div>
+          <div class="g">{{keyword}}</div>
+          <div class="g"></div>
+          <div class="g"></div>
+          <div class="g"></div>
+      </div>
+            <div class="e">
+          <div class="l"></div>
+          <div class="m"></div>
+          <div class="m"></div>
+          <div class="m"></div>
+          <div class="m"></div>
+      </div>
+            <div class="e">
+          <div class="f"></div>
+          <div class="g"></div>
+          <div class="g"></div>
+          <div class="g"></div>
+          <div class="g"></div>
+      </div>
+      <!--评论区结尾-->
+      </div>
+
+      <!--vue开头-->
+      <script type="text/javascript">
+      var vm=new Vue({
+        el:"#d",
+        data:{
+          topic:"",
+          keyword:""
+        }
+      })
+      </script>
+      <!--vue结尾-->
+    </div>
+    </div>
+    </body>
+</html>
