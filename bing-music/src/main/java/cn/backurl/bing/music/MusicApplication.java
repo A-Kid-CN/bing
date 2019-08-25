@@ -22,6 +22,10 @@ public class MusicApplication implements WebMvcConfigurer {
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 //		registry.addResourceHandler("/image/**").addResourceLocations("file:/usr/local/bing/");
 
+        registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
+        registry.addResourceHandler("/img/**").addResourceLocations("classpath:/img/");
+
+
 		log.info("注入文件虚拟路径");
 	}
 
