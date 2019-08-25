@@ -2,79 +2,18 @@
 * @Author: Administrator
 * @Date:   2019-08-24 01:17:26
 * @Last Modified by:   Administrator
-* @Last Modified time: 2019-08-24 06:31:35
+* @Last Modified time: 2019-08-25 20:48:08
 */
-.a{
-
-
+*{
+  margin: 0;
+  padding: 0;
 }
-.b{
-  height: 900px;
-  background: #e8e8e8;
-  width:1000px;
+.topbar{
+  height: 40;
+  background: #333;
+}
+.wrapper{
+  height: 40;
+  width: 1200px;
   margin: 0 auto;
-}
-.c{
-  height: 30px;
-  width: 150px;
-  margin:0 auto;
-}
-.d{
-  height: 30px;
-  width:450px;
-  margin: 0 auto;
-}
-.h{
-  height: 30px;
-  width: 90%;
-  background: #ffffff;
-  margin: 0 auto;
-}
-.i{
-  height: 30px;
-  width: 380px;
-  background: #e7e7e7;
-  float: left;
-  text-align:center
-}
-.j{
-  height: 30px;
-  width: 130px;
-  background: #d1d1d1;
-  float: left;
-  text-align:center
-}
-.e{
-  height: 130px;
-  width: 90%;
-  background: #ffffff;
-  margin: 0 auto;
-}
-.g{
-  height: 130px;
-  width: 130px;
-  background: #e7e7e7;
-  float: left;
-  text-align:center
-}
-.f{
-  height: 130px;
-  width: 380px;
-  background: #d1d1d1;
-  float: left;
-  text-align:center
-}
-.m{
-  height: 130px;
-  width: 130px;
-  background:  #d1d1d1;
-  float: left;
-  text-align:center
-}
-.l{
-  height: 130px;
-  width: 380px;
-  background:#e7e7e7;
-  float: left;
-  text-align:center
 }

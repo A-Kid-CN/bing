@@ -1,0 +1,63 @@
+/*
+* @Author: Administrator
+* @Date:   2019-08-24 21:49:05
+* @Last Modified by:   Administrator
+* @Last Modified time: 2019-08-25 22:31:25
+*/
+*{
+  margin: 0;
+  padding: 0;
+}
+.navigation{
+    color: #fff;
+    height: 70px;
+    background: #242424;
+    font-size: 14px;
+}
+/*
+margin定位，两个值时（垂直，水平）
+四个值时（上右下左）
+ */
+.navigation_detailed{
+  width: 1100px;
+  height: 70px;
+  margin: 0 auto;
+}
+.logo{
+  float: left;
+}
+.navigation_detailed_linker{
+  height: 70px;
+  line-height: 70px;
+}
+.navigation_detailed_linker span{
+  height: 70px;
+  margin: 0 0 0 30px;
+}
+.navigation_detailed_linker a{
+  color: #cccccc;
+  text-decoration: none;
+}
+.navigation_detailed_linker a:hover{
+color: #ffffff;
+}
+/*float:right;右浮动，float:left;左浮动*/
+.navigation_register{
+margin: 0 0 0 10px;
+float: right;
+color: #787878;
+}
+.navigation_register:hover{
+  color: #cccccc
+}
+.navigation_creation{
+  height: 30px;
+  width: 100px;
+   border: 1;
+   float: right;
+   color: #ffffff;
+   margin: 10px 0 0 0;
+}
+.form{
+  float: right;
+}
